@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap');
+
+body {
+  overflow-x: hidden; /* all content contained with browser window */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #2e2d29;
+}
+
+.offset: before {
+  display: block;
+  content: "";
+  height: 4rem; 
+  margin-top: -4rem; 
+}
+
+/* Start of Navigation */
+
+.navbar {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .9rem; /* 1rem is 16px for reference */
+  letter-spacing: .1rem; 
+  background: rgba(0, 0, 0, 0.6)!important;  /* low transparency, !important overrides */
+}
+
+.navbar-brand img { /* resizes the logo */
+  height: 6rem; 
+}
+
+.navbar-nav li {
+  padding-right: .6rem; /* navbar links spaced out */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white; 
+  padding-top: .7rem; 
+}
+
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link:hover { /* changing color of each navbar link */
+  color: #cfbf32;
+}
+
+/* End of Navigation */
+
+/* Start of Landing Page with Image and text*/
+
+.home-inner {
+  background-image: url(img/planes.png); 
+}
+
+.caption {
+  width: 100%; 
+  max-width: 100%; 
+  position: absolute;
+  top: 40%; 
+  z-index: 1; /* Displayed ontop of background image */
+  color: black; 
+  text-transform: uppercase;
+}
+
+.caption h1 {
+  font-size: 4.0rem; 
+  font-weight: 700;
+  letter-spacing: .4rem; 
+  text-shadow: .1rem .1rem .4rem black; /* Horizontal vertical blur radius, this makes a shadow around the text */
+  padding-bottom: 1rem; 
+}
+
+.caption h3 {
+  font-size: 2rem; 
+  text-shadow: .1rem .1rem .4rem black;
+  padding-bottom: 1.7rem; 
+}
+
+.btn-lg {
+  border-width: medium; 
+  border-radius: 0; /* Takes away default button rounded edges */
+  padding: .6rem 1.2rem;
+  font-size: 1.1rem;  
+  color: black; 
+}
+
+/* End of Landing Page with Image and text */
+
+/* Start of Map */
+
+.narrow {
+  width: 100%;
+  margin: 1.5rem auto; /* auto makes sure section is centered */
+  padding-top: 2rem;
+}
+
+.narrow h1 {
+  font-size: 2.4rem; 
+}
+
+/* End of Map */
+
+/* Start of Statistics */
+
+.jumbotron {
+  margin-bottom: 0; /* Eliminates white between Statistics and next section */
+  padding: 1rem 0 3.5rem; 
+  border-radius: 0; /* remove harsh border radius */
+}
+
+h3.heading {
+  font-size: 1.8rem; 
+  font-weight: 700; 
+  margin-bottom: 1.8rem; 
+  text-transform: uppercase;
+}
+
+.heading-underline {
+  width: 3.5rem; 
+  height: .3rem; 
+  margin: 0 auto 2rem; 
+  background-color: #cfbf32; 
+}
+
+.statistics h3 {
+  font-size: 1.4rem; 
+  text-transform: uppercase;
+  padding-bottom: .3rem; 
+}
+
+.statistics p {
+  font-size: 1.2rem; 
+}
+
+/* End of Statistics */
+
+/* Start of Created With */
+
+.created svg.svg-inline--fa {
+  color: #cfbf32; /* this sets the color for the icons */
+}
+
+.created h3 {
+  padding: .4rem;
+}
+
+.created p {
+  font-size: 1.2rem;
+}
+
+.fixed {
+  background-image: url(img/map.png);
+  z-index: -1; /* image moves behind content */
+}
+
+.fixed-background h3 {
+  color:black;
+}
+
+.fixed-background p {
+  color: black;
+}
+
+/* End of Created With */
+
+/* Start of Contact */
+
+footer {
+  background-color: #363231;
+  color: white; 
+  padding: 2rem 0; 
+  margin-top: 1rem; 
+}
+
+footer img { /* resizing the logo */
+  height: 6rem; 
+  margin: 1.5rem 0;
+}
+
+footer a { /* Twitter and Github logo */
+  color: white; 
+}
+
+footer svg.svg-inline--fa { /* resizing a */
+  font-size: 1.5rem; 
+  margin: 1.2rem .4 rem 0 0;
+}
+
+footer svg.svg-inline--fa:hover {
+  color: #cfbf32 !important; /* color when mouse hovers over the icons */
+}
+
+hr.socket { /* called socket where it contains the copyright information */
+  width: 100%;
+  border-top: .1rem dashed #cfbf32;
+  margin-top: 3rem;  
+}
+
+/* End of Contact */
+
+/* Media Query for medium devices */
+
+@media (max-width: 767px) {
+
+.caption h1 {
+  font-size: 2.3rem; 
+  letter-spacing: .2rem; 
+  padding-bottom: .5rem; 
+}
+
+.caption h3 {
+  font-size: 1.2rem; 
+  padding-bottom: 1.2rem; 
+}
+
+.btn-lg {
+  padding: .4rem 1rem;
+  font-size: 1rem;  
+}
+
+.narrow h1 {
+  font-size: 1.5rem; 
+}
+}
+
+
+
+

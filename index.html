@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- this allows to be viewed on mobile device and tablet -->
+	
+  	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <!-- used as container and css allows to change styles -->
+
+	<title>The OpenSky Challenge</title>
+	<link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.min.css"> <!-- required to build a bootstrap website -->
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/fixed.css"> <!-- fixed images display on mobile phones and tablets -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script> <!-- taken from chart.js to use charts in website -->
+</head>
+
+<body data-spy="scroll" data-target="#navbarResponsive">
+
+<!-- Starting Home Section -->
+
+<div id="home">
+
+	<div id="root"></div>
+	<script type='text/javascript' src='js/map.js'></script>
+
+<!-- Start of Navigation Bar -->
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"> <!-- expand-md used when sizing web browser (mobile and tablet), 
+																the nav bar must be fixed to top (fixed-top) -->
+	<a class="navbar-brand" href="#"><img src="https://spritz.math.unipd.it/img/opensky_logo.png" alt="logo"> <!-- nav-brand is standard class for adding logo -->
+	</a>
+
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-targer="#navbarResponsive"> <!--when in Mobile or tablet mode, nav bar displayed top right corner -->
+		<span class="navbar-toggler-icon"> <!-- gives the three lines for the collapse navbar (hamburger icon) -->			
+		</span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarResponsive">
+		<ul class="navbar-nav ml-auto"> <!-- ml-auto sets navigation to the right hand side of the navbar -->
+			<li class="nav-item">
+				<a class="nav-link" href="#home">Home</a> <!--The first navigation link appears at top right -->
+			</li> <!-- end of Home button -->
+
+			<li class="nav-item">
+				<a class="nav-link" href="#map">Map</a>
+			</li> <!-- end of Map button -->
+
+			<li class="nav-item">
+				<a class="nav-link" href="#statistics">Statistics</a>
+			</li> <!-- end of Statistics button -->
+
+			<li class="nav-item">
+				<a class="nav-link" href="#about_us">About Us</a>
+			</li> <!-- end of About Us button -->
+
+			<li class="nav-item">
+				<a class="nav-link" href="#created_with">Created With</a>
+			</li> <!-- end of About Us button -->
+
+			<li class="nav-item">
+				<a class="nav-link" href="#contact">Contact</a>
+			</li> <!-- end of Contact button -->
+
+		</ul>
+	</div>
+</nav>
+
+<!-- End of Navigation Bar -->	
+
+<!-- Start of Landing Page -->
+
+<div class="landing">
+	<div class="home-wrap">
+		<div class="home-inner"> <!--setting a background image -->
+		</div>
+	</div>
+</div>
+
+<!-- Entering text for the landing page-->
+
+<div class="caption text-center"> <!-- text will be centered -->
+	<h1>Welcome to OpenSky Web</h1> <!-- the largest heading -->
+	<h3>Open Air Traffic Data for Research</h3>
+	<a class="btn btn-outline-light btn-lg" href="#map">Take me to the Map</a> <!--when pressing the button, it takes you to the href link -->
+</div>
+
+<!-- End of Landing Page -->
+	
+</div>
+
+<!-- Ending Home Section -->
+
+<!-- Starting Map Section --> <!-- footer style will be used here --> 
+
+<div id="map" class="offset"> <!-- class offset styled in .css -->
+
+
+<!-- Start of Jumbotron, provides grey background by Bootstrap-->
+<div class="jumbotron">
+
+	<div class="col-12 narrow text-center"> <!-- provides extra margin -->
+			<h3 class="heading">Map</h3>
+			<div class="heading-underline"></div> 
+			<iframe id="map" src="https://opensky-network.org/iframe?c=49.03786794532644,43.24218750000001&z=3" width="700px" height="500px"></iframe>
+			<p>Live Air Traffic Map obtained by 'https://opensky-network.org/network/opensky-iframe' for use of Challenge</p>
+			<p>You are able to scroll in on the map, and it is a live map meaning that the 
+				flights are updated and move. It is not a still map. The blue dots on the map show the Name of the Airports. </p>
+	</div>
+
+</div>
+	
+</div>
+
+<!-- Ending Map Section -->
+
+<!-- Starting Statistics Section -->
+
+<div id="statistics" class="offset"> <!-- class offset styled in .css -->
+
+	<div class="narrow">
+		
+		<div class="col-12 narrow text-center"> <!-- provides extra margin -->
+			<h3 class="heading">Statistics</h3>
+			<div class="heading-underline"></div> <!-- creates a line to break heading from the graphs -->
+		</div>
+
+		<div class="row text-center">
+
+      <div class="col-md-6"> <!-- bootstrap has 12 total columns in framework, we are only using 2-->
+        <div class="statistic">
+          <h3>Bar Graph</h3>
+          <canvas id="oneChart" width="200" height="200"></canvas>
+
+<!-- start of JavaScript -->
+
+          <script>
+			var ctx = document.getElementById('oneChart').getContext('2d');
+			var oneChart = new Chart(ctx, {
+    			type: 'bar',
+    			data: {
+        			labels: ['France', 'Spain', 'Italy', 'Germany', 'Austria', 'Greece', 'Lisbon'], // countries listed
+        			datasets: [{
+            			label: 'April, 2019, Growth of flights in European Network',
+           				data: [240, 229, 162, 137, 100, 76, 66],
+            			backgroundColor: [
+			                'rgba(223, 52, 52, 1)',
+			                'rgba(52, 95, 223, 1)',
+			                'rgba(52, 223, 135, 1)',
+			                'rgba(115, 223, 52, 1)',
+			                'rgba(223, 206, 52, 1)',
+			                'rgba(223, 152, 52, 1)',
+			                'rgba(223, 92, 52, 1)'
+            			],
+            			borderWidth: 1
+      				  }]
+    				},
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                }
+			            }]
+			        }
+			    }
+			});
+		</script>
+
+<!-- End of Javascript -->
+
+          <p>The Bar Graph above is a visual representation of data collected in April, 2019 
+          		of the countries that contributed most to flight growth within Europe.
+          		Values indicate how many flights occured per day.</p>
+        </div>
+
+      </div>
+
+      <div class="col-md-6"> <!-- bootstrap has 12 total columns in framework, we are only using 2-->
+        <div class="statistic">
+          <h3>Line Chart</h3>
+
+          	 <canvas id="twoChart" width="200" height="200"></canvas>
+
+		          <script>
+					var ctx = document.getElementById('twoChart').getContext('2d');
+					var twoChart = new Chart(ctx, {
+		    			type: 'line', // this is a line graph 
+		    			data: {
+		        			labels: ['Wizz Air (Hungary)', 'LOT (Polish Airline)', 'Vueling (Spain)', 'Air France', 'Ryanair (Ireland)'], // airlines listed
+		        			datasets: [{
+		            			label: 'April, 2019, Most flights (on average), per day, per Aircraft',
+		           				data: [35, 42, 45, 118, 123],
+		            			backgroundColor: [
+					                'rgba(155, 228, 211, 1)',  
+		            			],
+		            			borderColor: [
+					                'rgba(255, 99, 132, 1)',
+					                'rgba(54, 162, 235, 1)',
+					                'rgba(255, 206, 86, 1)',
+					                'rgba(75, 192, 192, 1)',
+					                'rgba(153, 102, 255, 1)', 
+		            			],
+		            			borderWidth: 1
+		      				  }]
+		    				},
+					    options: {
+					        scales: {
+					            yAxes: [{
+					                ticks: {
+					                    beginAtZero: true
+					                }
+					            }]
+					        }
+					    }
+					});
+				</script>
+
+          <p>This is a Line Graph and indicates the data in April, 2019, of the Top Aircraft flights per day.
+          	These Aircrafts added the most flights per day.</p>
+        </div>
+      </div>
+      
+    	</div> <!-- end of the row -->
+
+    <div class="container">
+        	<canvas id="chartOne"> <!-- html element --> </canvas>
+        </div>
+
+	</div>
+
+<!-- End Jumbotron -->
+</div>
+
+<!-- Ending Statistics Section -->
+
+<!-- Starting About Us Section -->
+
+<div id="about_us" class="offset"> <!-- class offset styled in .css -->
+
+<!-- Start of Jumbotron, provides grey background by Bootstrap-->
+<div class="jumbotron">
+
+	<div class="col-12 narrow text-center"> <!-- provides extra margin -->
+			<h3 class="heading">About Us</h3>
+			<div class="heading-underline"></div> <!-- creates a line to break heading from the graphs -->
+			<p>The OpenSky Network is a non-profit association based in Switzerland. It aims at improving the security, reliability and efficiency of the air space usage by providing open access of real-world air traffic control data to the public. The OpenSky Network consists of a multitude of sensors connected to the Internet by volunteers, industrial supporters, and academic/governmental organizations. All collected raw data is archived in a large historical database. The database is primarily used by researchers from different areas to analyze and improve air traffic control technologies and processes.</p>
+	</div>
+
+</div> <!-- end of jumbotron -->
+	
+</div>
+
+<!-- Ending About Us Section -->
+
+<!-- Start of Created With Section, this is just a fun section to add a different look to the web page-->
+
+<div id="created_with" class="offset">
+
+	<div class="fixed-background">
+		<div class="row dark text-center">
+
+			<div class="col-12 narrow text-center"> <!-- provides extra margin -->
+				<h3 class="heading">Created with:</h3>
+				<div class="heading-underline"></div> <!-- creates a line to break heading from the graphs -->
+			</div>
+
+
+			<div class="col-md-3"> <!-- creating 4 columns -->
+				<h3>JavaScript</h3>
+				<div class="created">
+					<i class="fab fa-js fa-4x"></i>
+				</div>
+				<p>Built with JavaScript</p>
+			</div>	
+
+			<div class="col-md-3"> 
+				<h3>HTML 5</h3>
+				<div class="created">
+					<i class="fab fa-html5 fa-4x"></i>
+				</div>
+				<p>Built with HTML 5</p>
+			</div>
+
+			<div class="col-md-3"> 
+				<h3>Bootstrap 4</h3>
+				<div class="created">
+					<i class="fas fa-bold fa-4x"></i> <!-- does not have an icon as searched in fontawesome.com -->
+				</div>
+				<p>Built with Bootstrap 4</p>
+			</div>	
+
+			<div class="col-md-3"> <!-- creating 3 columns -->
+				<h3>CSS 3</h3>
+				<div class="created">
+					<i class="fab fa-css3 fa-4x"></i>
+				</div>
+				<p>Built with CSS3</p>
+			</div>			
+
+		</div>
+
+			<div class="fixed-wrap">
+				<div class="fixed"></div> <!-- background image is added here -->
+			</div>
+
+	</div>
+	
+</div>
+
+<!-- Ending Created With Section -->
+
+<!-- Starting Contact Section -->
+
+<div id="contact" class="offset"> <!-- class offset styled in .css -->
+	
+<footer>
+	<div class="row justify-content-center">
+
+		<div class="col-md-5 text-center"> <!-- will be displayed in the center -->
+			<img src="https://spritz.math.unipd.it/img/opensky_logo.png">
+			<p>Follow us on Twitter and Github</p>
+			<a href="https://twitter.com/OpenSkyNetwork" target="_blank"><i class="fab fa-twitter-square"></i></a> <!-- twitter -->
+			<a href="https://github.com/openskynetwork" target="_blank"><i class="fab fa-github"></i></a> <!-- github -->
+		</div>
+
+		<hr class="socket"> <!-- line between footer and end of page -->
+		&copy; 2013-2019 The OpenSky Network
+
+	</div>
+</footer>
+
+</div>
+
+<!-- Ending Contact Section -->
+
+<!-- Script Source Files -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script> -->
+<script src="https://maps.googleapis.com/maps/api/js?&callback=initMap" async defer></script> <!-- Google Map Javascript API -->
+<!-- End of Script Source Files -->
+
+</body>
+</html>
